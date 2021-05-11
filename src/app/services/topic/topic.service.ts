@@ -6,19 +6,23 @@ import {HttpClient} from '@angular/common/http';
 })
 export class TopicService {
   topics: any;
+  response: any;
 
   apiUrl = 'http://redditlikeapi-env.eba-tpi4ysj3.us-east-2.elasticbeanstalk.com/api/topics';
 
   constructor(private http: HttpClient) { }
 
   getTopics(): any {
-    return this.http.get(this.apiUrl);
+    this.http.get(this.apiUrl)
+      .subscribe(response => {
+        this.response = response;
+      });
+    return this.response;
   }
 
   getTopic(name: string): any {
-    return this.http.get(this.apiUrl).subscribe( response => {
-      console.log(response);
-      // response.forEach(each => each.filter(name === name);
-    });
+    this.getTopics();
+    return this.response.filter(item => item.name === name);
   }
+
 }

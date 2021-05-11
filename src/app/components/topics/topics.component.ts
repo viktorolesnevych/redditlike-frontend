@@ -12,9 +12,10 @@ export class TopicsComponent implements OnInit {
   constructor(private topicService: TopicService) { }
 
   ngOnInit(): void {
-    this.topicService.getTopics().subscribe(response => {
-      this.topics = response;
-    });
+    this.topics = this.topicService.getTopics();
+    // .subscribe(response => {
+    //   this.topics = response;
+    // });
   }
 
 }
