@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { TopicsService } from '../../services/topic/topics.service';
 
 @Component({
   selector: 'app-topics',
@@ -9,14 +9,12 @@ import { HttpClient } from '@angular/common/http';
 export class TopicsComponent implements OnInit {
   topics: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private topicService: TopicsService) { }
 
   ngOnInit(): void {
-    this.http.get('http://redditlikeapi-env.eba-tpi4ysj3.us-east-2.elasticbeanstalk.com/api/topics')
-      .subscribe(response => {
-        console.log(response);
-        // this.topics = response;
-      });
+    this.topicService.getTopics().subscribe(response => {
+      this.topics = response;
+    });
   }
 
 }

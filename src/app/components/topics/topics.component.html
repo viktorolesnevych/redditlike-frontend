@@ -1,3 +1,7 @@
 <div *ngIf="topics">
-  <app-topics></app-topics>
+  <ul>
+    <li *ngFor="let topic of topics">
+      {{topic.name}}
+    </li>
+  </ul>
 </div>
