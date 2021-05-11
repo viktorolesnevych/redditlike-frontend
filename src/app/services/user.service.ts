@@ -50,11 +50,19 @@ export class UserService {
     this.router.navigate(['/login']);
   }
   getAuthErrorText(response: any): string{
-    console.log(response);
-    console.log(response['status']);
+    console.log("STATUS: " + response['status']);
+    console.log('Current error: ' + localStorage.getItem('currentError'))
     if (response['status'] == 409) {
-      console.log('YES');
-      return 'User already exists';
+      console.log(409);
+      return 'User already exists!';
+    }
+    if (response['status'] == 403) {
+      console.log(403);
+      return 'Wrong password provided!';
+    }
+    if (response['status'] == 404) {
+      console.log(404);
+      return 'User with these credentials does not exist!';
     }
   }
 }
