@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopicsService } from '../../services/topic/topics.service';
+import { TopicService } from '../../services/topic/topic.service';
 
 @Component({
   selector: 'app-topics',
@@ -9,7 +9,7 @@ import { TopicsService } from '../../services/topic/topics.service';
 export class TopicsComponent implements OnInit {
   topics: any[];
 
-  constructor(private topicService: TopicsService) { }
+  constructor(private topicService: TopicService) { }
 
   ngOnInit(): void {
     this.topicService.getTopics().subscribe(response => {

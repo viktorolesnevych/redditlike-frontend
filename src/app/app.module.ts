@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/authorization/login/login.component';
 import { TopicComponent } from './components/topic/topic.component';
+import { ArticlelistComponent } from './components/articlelist/articlelist.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TopicComponent } from './components/topic/topic.component';
     TopicsComponent,
     SignupComponent,
     LoginComponent,
-    TopicComponent
+    TopicComponent,
+    ArticlelistComponent
   ],
   imports: [
     BrowserModule,
