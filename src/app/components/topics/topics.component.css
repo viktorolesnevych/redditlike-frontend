@@ -1,3 +1,16 @@
 p {
   margin-top: 50px;
 }
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  max-width: 90vw;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
