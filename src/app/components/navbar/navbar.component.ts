@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
 import {UserService} from '../../services/user.service';
 
 @Component({
@@ -13,7 +13,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.userService.searchSubject.subscribe(currentUser => {
       this.currentUser = currentUser;
-      console.log(`CURRENT USER: ${currentUser}`);
     });
   }
 

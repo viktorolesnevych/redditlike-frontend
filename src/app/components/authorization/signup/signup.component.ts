@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {UserService} from '../../../services/user.service';
 
 @Component({
@@ -7,9 +7,10 @@ import {UserService} from '../../../services/user.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  public userName: string;
-  public emailAddress: string;
-  public password: string;
+  userName: string;
+  emailAddress: string;
+  password: string;
+  errorText = '';
   constructor(private userService: UserService) {
   }
   ngOnInit(): void {
@@ -18,6 +19,9 @@ export class SignupComponent implements OnInit {
   registerUser(): void {
     const newUser = {userName: this.userName, emailAddress: this.emailAddress, password: this.password};
     this.userService.registerUser(newUser);
+    if (localStorage.getItem('currentError')){
+      this.errorText = localStorage.getItem('currentError');
+    }
   }
 
 }
