@@ -40,6 +40,7 @@ export class UserService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
     this.currentUser = '';
+    this.searchSubject.next(this.currentUser);
     this.router.navigate(['/login']);
   }
 }

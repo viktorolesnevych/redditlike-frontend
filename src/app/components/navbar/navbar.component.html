@@ -5,7 +5,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a routerLink="topics">Topics</a></li>
       <li *ngIf="!currentUser"><a routerLink="/login">Log In</a></li>
-      <li *ngIf="currentUser"><a>Log out</a></li>
+      <li (click)="logout()" *ngIf="currentUser"><a>Log out</a></li>
       <li><a href="#">Components</a></li>
       <li><a href="#">JavaScript</a></li>
     </ul>

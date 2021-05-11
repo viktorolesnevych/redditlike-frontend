@@ -17,4 +17,9 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  // logging user out, clearing localstorage, returning to login form
+  logout(): void {
+    this.userService.logoutUser();
+  }
+
 }
