@@ -28,12 +28,12 @@ export class UserService {
       .post(`${herokuUrl}/auth/users/login`, user)
       .subscribe(response => {
         const token = response['jwt'];
-        localStorage.setItem('currentUser', `${user.email}`);
+        localStorage.setItem('currentUser', `${user.emailAddress}`);
         localStorage.setItem('token', `${token}`);
         console.log(response, token);
-        this.currentUser = user.email;
+        this.currentUser = user.emailAddress;
         this.searchSubject.next(this.currentUser);
-        // this.router.navigate(['/categories']);
+        this.router.navigate(['/']);
       }, err => console.log(err));
   }
   logoutUser(): void {
