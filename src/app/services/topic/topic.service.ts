@@ -18,7 +18,7 @@ export class TopicService {
   getTopic(name: string): any {
     return this.http.get(this.apiUrl).subscribe( response => {
       console.log(response);
-      response.forEach(each => each.filter(name === name);
+      // response.forEach(each => each.filter(name === name);
     });
   }
 }

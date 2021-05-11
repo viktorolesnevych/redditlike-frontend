@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  currentUser: any;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.searchSubject.subscribe(currentUser => {
+      this.currentUser = currentUser;
+    });
+  }
+
+  // logging user out, clearing localstorage, returning to login form
+  logout(): void {
+    this.userService.logoutUser();
   }
 
 }

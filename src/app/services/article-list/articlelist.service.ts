@@ -11,10 +11,10 @@ export class ArticlelistService {
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private topicService: TopicService) { }
 
-  topic = this.topicService.getTopic()
+  // topic = this.topicService.getTopic()
 
   getArticles(): any {
-    return this.http.get(this.apiUrl + `${topic.id}`)
+    // return this.http.get(this.apiUrl + `${topic.id}`)
   }
 
 }
