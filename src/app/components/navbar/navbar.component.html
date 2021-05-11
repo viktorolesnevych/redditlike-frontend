@@ -3,17 +3,10 @@
     <a href="#" class="circle red"></a>
     <a href="#" class="brand-logo">Red Dot</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-<<<<<<< HEAD
       <li><a routerLink="/">Topics</a></li>
       <li><a routerLink="/signup">Sign Up</a></li>
-      <li><a routerLink="/login">Log In</a></li>
-=======
-      <li><a routerLink="topics">Topics</a></li>
       <li *ngIf="!currentUser"><a routerLink="/login">Log In</a></li>
       <li (click)="logout()" *ngIf="currentUser"><a>Log out</a></li>
-      <li><a href="#">Components</a></li>
-      <li><a href="#">JavaScript</a></li>
->>>>>>> de4393f05dc78c9eb272b5a8851f7af421b42819
     </ul>
   </div>
 </nav>
