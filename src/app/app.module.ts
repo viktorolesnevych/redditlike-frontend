@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/authorization/login/login.component';
 import { TopicComponent } from './components/topic/topic.component';
 import { ArticlelistComponent } from './components/articlelist/articlelist.component';
+import { ArticleNewComponent } from './components/article-new/article-new.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ArticlelistComponent } from './components/articlelist/articlelist.compo
     SignupComponent,
     LoginComponent,
     TopicComponent,
-    ArticlelistComponent
+    ArticlelistComponent,
+    ArticleNewComponent
   ],
   imports: [
     BrowserModule,

@@ -20,9 +20,9 @@ export class ArticlelistComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.topicService.getTopics().subscribe(response => {
-        this.topic = response.filter(item => item.name === params.get('name'));
+        this.topic = response.filter(item => item.name === params.get('name'))[0];
 
-        this.articles = this.topic[0].articleList;
+        this.articles = this.topic.articleList;
         console.log(this.articles);
       });
     });
