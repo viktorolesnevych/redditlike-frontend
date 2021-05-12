@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { TopicService } from '../../services/topic/topic.service';
-import {UserService} from "../../services/user.service";
+import {UserService} from '../../services/user.service';
+
 
 @Component({
   selector: 'app-topics',
@@ -14,11 +15,14 @@ export class TopicsComponent implements OnInit {
   constructor(private topicService: TopicService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.topicService.getTopics()
+      .subscribe(response => {
+        this.topics = response;
+      }); // subscribes to getTopics() subscription
     this.userService.searchSubject.subscribe(currentUser => {
       this.currentUser = currentUser;
       console.log('Topics Current User ' + this.currentUser);
     });
-    this.topics = this.topicService.getTopics();
   }
   toggleAddTopicForm(): void{
     this.isFormVisible = !this.isFormVisible;
