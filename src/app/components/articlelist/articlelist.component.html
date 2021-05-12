@@ -1,1 +1,15 @@
-<p class="white-text" style="margin-top: 50px">{{topic[0].name}} works!</p>
+<div *ngIf="topic">
+  <div class="container-lg">
+    <div *ngFor="let article of articles" class="card grey darken-3" style="padding: 5px 10px 10px 10px">
+      <div class="image card"></div>
+      <div>
+        <div class="card-title white-text">
+          {{article.title}}
+        </div>
+        <div class="card-body white-text">
+          {{article.textContent}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
