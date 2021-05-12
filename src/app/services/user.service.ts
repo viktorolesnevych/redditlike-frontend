@@ -49,6 +49,7 @@ export class UserService {
     localStorage.removeItem('token');
     localStorage.removeItem('currentError');
     this.currentUser = '';
+    this.navSubject.next(this.currentUser);
     this.searchSubject.next(this.currentUser);
     this.router.navigate(['/login']);
   }

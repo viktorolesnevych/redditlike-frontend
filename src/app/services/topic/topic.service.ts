@@ -23,6 +23,18 @@ export class TopicService {
     });
   }
 
+  // todo: extrapolate token and requestOptions logic to a service so we're not repeating code
+  createTopic(newTopic): any{
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http
+      .post(`${this.apiUrl}/new`, newTopic, requestOptions);
+  }
+
   deleteTopic(topicId: any): any {
     const token = localStorage.getItem('token');
     const requestOptions = {
