@@ -3,6 +3,8 @@
   width: 200px;
   height: 250px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-title {
@@ -14,4 +16,11 @@
 
 .card-body {
   margin: 10px;
+}
+
+.delete {
+  align-self: flex-end;
+  margin-top: auto;
+  color: blue;
+  padding: 5px;
 }
