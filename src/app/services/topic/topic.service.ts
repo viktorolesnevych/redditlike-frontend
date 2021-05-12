@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,17 @@ export class TopicService {
       this.response = response;
       return this.response.filter(item => item.name === name);
     });
+  }
+
+  deleteTopic(topicId: any): any {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    this.http.delete(this.apiUrl + '/' + topicId + '/', requestOptions)
+      .subscribe(response => console.log(response));
   }
 
 }
