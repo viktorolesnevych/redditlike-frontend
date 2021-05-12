@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +23,15 @@ export class TopicService {
     });
   }
 
+  createTopic(newTopic): any{
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    console.log(requestOptions);
+    return this.http
+      .post(`${this.apiUrl}/new`, newTopic, requestOptions);
+  }
 }

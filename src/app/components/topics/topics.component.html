@@ -9,14 +9,14 @@
     <form *ngIf="isFormVisible" class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate white-text">
-          <label for="first_name">Topic name</label>
+          <input [(ngModel)]="title" id="title" type="text" class="validate white-text" name="title">
+          <label for="title">Topic name</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate white-text">
-          <label for="last_name">Description</label>
+          <input  [(ngModel)]="description" id="description" type="text" class="validate white-text" name="description">
+          <label for="description">Description</label>
         </div>
-        <button class="btn waves-effect waves-light">Add topic</button>
+        <button (click)="createTopic()" class="btn waves-effect waves-light">Add topic</button>
       </div>
     </form>
     <div *ngIf="!isFormVisible;then content else contentElse"></div>
