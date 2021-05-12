@@ -1,0 +1,25 @@
+.container-lg {
+  margin: 10px;
+  max-width: 70vw;
+}
+
+.card {
+  display: flex;
+  max-width: 70vw;
+  max-height: 90px;
+}
+
+.card-title {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.card-body {
+  margin-left: 20px;
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  background-color: red;
+}

@@ -10,7 +10,7 @@ import {TopicService} from '../../services/topic/topic.service';
 })
 export class ArticlelistComponent implements OnInit {
   topic: any;
-  articles: any[];
+  articles = [];
 
   constructor(
     private articleListService: ArticlelistService,
@@ -19,10 +19,25 @@ export class ArticlelistComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.topic = this.topicService.getTopic(params.get('name'));
-      // console.log(this.topic);
+      this.topicService.getTopics().subscribe(response => {
+        this.topic = response.filter(item => item.name === params.get('name'));
+
+        this.articles = this.topic[0].articleList;
+        console.log(this.articles);
+      });
     });
-    this.articles = this.articleListService.getArticles(this.topic);
+
   }
+
+  // getArticlesForTopic(): any{
+  //   if (this.topic !== undefined) {
+  //     this.articleListService.getArticles(this.topic)
+  //       .subscribe(articleResponse => {
+  //         this.articles = articleResponse;
+  //       });
+  //   } else {
+  //     return null;
+  //   }
+  // }
 
 }

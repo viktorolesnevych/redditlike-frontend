@@ -12,7 +12,7 @@ export class TopicComponent implements OnInit {
   constructor(private topicService: TopicService) { }
 
   ngOnInit(): void {
-    // this.topicService.getTopic(this.topic.name);
+    this.topicService.getTopic(this.topic.name);
   }
 
 }
