@@ -13,16 +13,14 @@ export class TopicService {
   constructor(private http: HttpClient) { }
 
   getTopics(): any {
-    this.http.get(this.apiUrl)
-      .subscribe(response => {
-        this.response = response;
-      });
-    return this.response;
+    return this.http.get(this.apiUrl); // returns a subscription
   }
 
   getTopic(name: string): any {
-    this.getTopics();
-    return this.response.filter(item => item.name === name);
+    this.response = this.getTopics().subscribe(response => {
+      this.response = response;
+      return this.response.filter(item => item.name === name);
+    });
   }
 
 }

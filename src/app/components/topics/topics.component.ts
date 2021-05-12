@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TopicService } from '../../services/topic/topic.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-topics',
@@ -7,15 +8,15 @@ import { TopicService } from '../../services/topic/topic.service';
   styleUrls: ['./topics.component.css']
 })
 export class TopicsComponent implements OnInit {
-  topics: any[];
+  topics = []; // must be an array to implement array methods
 
   constructor(private topicService: TopicService) { }
 
   ngOnInit(): void {
-    this.topics = this.topicService.getTopics();
-    // .subscribe(response => {
-    //   this.topics = response;
-    // });
+    this.topicService.getTopics()
+      .subscribe(response => {
+        this.topics = response;
+      }); // subscribes to getTopics() subscription
   }
 
 }
