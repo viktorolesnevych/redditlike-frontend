@@ -29,15 +29,4 @@ export class ArticlelistComponent implements OnInit {
 
   }
 
-  // getArticlesForTopic(): any{
-  //   if (this.topic !== undefined) {
-  //     this.articleListService.getArticles(this.topic)
-  //       .subscribe(articleResponse => {
-  //         this.articles = articleResponse;
-  //       });
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
 }

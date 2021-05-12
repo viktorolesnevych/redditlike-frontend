@@ -1,7 +1,30 @@
 <div *ngIf="topics">
-  <ul class="container">
+  <ul class="container container-ul">
     <li *ngFor="let topic of topics" class="white-text">
       <app-topic [topic]="topic"></app-topic>
     </li>
   </ul>
+<!--  Add topic here:-->
+  <div *ngIf="currentUserr" class="container center-align">
+    <form *ngIf="isFormVisible" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate white-text">
+          <label for="first_name">Topic name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate white-text">
+          <label for="last_name">Description</label>
+        </div>
+        <button class="btn waves-effect waves-light">Add topic</button>
+      </div>
+    </form>
+    <div *ngIf="!isFormVisible;then content else contentElse"></div>
+    <ng-template #content>
+      <a href="#" class="btn-floating red btn-large" (click)="toggleAddTopicForm()"><i class="large material-icons">add</i></a>
+    </ng-template>
+    <ng-template #contentElse>
+      <a href="#" class="btn-floating red btn-large" (click)="toggleAddTopicForm()"><i class="large material-icons">keyboard_arrow_up</i></a>
+    </ng-template>
+  </div>
 </div>

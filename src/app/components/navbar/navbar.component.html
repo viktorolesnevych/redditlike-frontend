@@ -1,10 +1,9 @@
 <nav>
   <div class="nav-wrapper red">
-    <a href="#" class="circle red"></a>
-    <a href="#" class="brand-logo">Red Dot</a>
+    <a class="circle red"></a>
+    <a routerLink="/" class="brand-logo">Red Dot</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a routerLink="/">Topics</a></li>
-      <li><a routerLink="/signup">Sign Up</a></li>
       <li *ngIf="!currentUser"><a routerLink="/login">Log In</a></li>
       <li><a *ngIf="currentUser" class = "btn dropdown-button" data-activates = "dropdown">{{currentUser}}</a></li>
       <li (click)="logout()" *ngIf="currentUser"><a>Log out</a></li>

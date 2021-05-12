@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 import {Router} from '@angular/router';
 
 const herokuUrl = 'http://redditlikeapi-env.eba-tpi4ysj3.us-east-2.elasticbeanstalk.com';
@@ -13,6 +13,7 @@ export class UserService {
 
   currentUser: string;
   errorText: string;
+  navSubject = new Subject();
   searchSubject = new Subject();
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -36,9 +37,11 @@ export class UserService {
         localStorage.setItem('currentUser', `${user.emailAddress}`);
         localStorage.setItem('token', `${token}`);
         localStorage.removeItem('currentError');
-        this.currentUser = user.emailAddress;
-        this.searchSubject.next(this.currentUser);
         this.router.navigate(['/']);
+        this.currentUser = user.emailAddress;
+        this.navSubject.next(this.currentUser);
+        this.searchSubject = new BehaviorSubject(this.currentUser);
+        this.searchSubject.next(this.currentUser);
       }, err => localStorage.setItem('currentError', `${this.getAuthErrorText(err)}`));
   }
   logoutUser(): void {
